@@ -70,6 +70,9 @@ storage.quota.maxFilesPerDB: <%= @quotafiles %>
 <% if @storage_engine_internal -%>
 storage.engine: <%= @storage_engine_internal %>
 <% end -%>
+<% if @storage_cachesize_internal -%>
+storage.wiredTiger.engineConfig.cacheSizeGB: <%= @storage_cachesize_internal %>
+<% end -%>
 
 
 #Security

@@ -67,6 +67,7 @@ class mongodb::server::config {
   $ssl_invalid_hostnames = $mongodb::server::ssl_invalid_hostnames
   $ssl_mode         = $mongodb::server::ssl_mode
   $storage_engine   = $mongodb::server::storage_engine
+  $storage_cachesize = $mongodb::server::storage_cachesize
 
   File {
     owner => $user,
@@ -96,6 +97,12 @@ class mongodb::server::config {
       $storage_engine_internal = undef
     } else {
       $storage_engine_internal = $storage_engine
+    }
+
+    if empty($storage_cachesize) {
+      $storage_cachesize_internal = undef
+    } else {
+      $storage_cachesize_internal = $storage_cachesize
     }
 
     # Pick which config content to use

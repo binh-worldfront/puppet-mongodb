@@ -73,6 +73,7 @@ class mongodb::server (
   Enum['requireSSL', 'preferSSL', 'allowSSL'] $ssl_mode         = 'requireSSL',
   Boolean $restart                                              = $mongodb::params::restart,
   Optional[String] $storage_engine                              = undef,
+  Optional[Integer] $storage_cachesize                          = undef,
   Boolean $create_admin                                         = $mongodb::params::create_admin,
   String $admin_username                                        = $mongodb::params::admin_username,
   Optional[Variant[String, Sensitive[String]]] $admin_password  = undef,
